@@ -14,7 +14,6 @@ const googl = require('goo.gl');
 const translate = require('google-translate-api');   
 const fs = require("fs"); 
 let ar = JSON.parse(fs.readFileSync(`./AutoRole.json`, `utf8`))
-var data = JSON.parse(fs.readFileSync('data.json','utf8'))
 const moment = require("moment");
 const UserBlocked = new Set(); 
 const jimp = require('jimp');   
