@@ -80,32 +80,32 @@ if(message.content.startsWith(prefix + `autorole`)) {
          
   let perms = message.member.hasPermission(`MANAGE_ROLES`)
 
-  if(!perms) return message.reply(`You don't have permissions, required permission : Manage Roles.`)
+  if(!perms) return message.reply(`لا تمتلك صلاحية التعديل على الرتب`)
   let args = message.content.split(" ").slice(1)
-  if(!args.join(" ")) return message.reply(`${prefix}autorle toggle/ set [ROLE NAME]`)
+  if(!args.join(" ")) return message.reply(`${prefix}autorole toggle `)
   let state = args[0]
-  if(!state.trim().toLowerCase() == 'toggle' || !state.trim().toLowerCase() == 'setrole') return message.reply(`Please type a right state, ${prefix}modlogs toggle/setrole [ROLE NAME]`) 
+  if(!state.trim().toLowerCase() == 'toggle' || !state.trim().toLowerCase() == 'setrole') return message.reply(`${prefix}modlogs toggle/set [ROLE NAME] , جرب`) 
     if(state.trim().toLowerCase() == 'toggle') { 
-     if(ar[message.guild.id].onoff === 'Off') return [message.channel.send(`**The Autorole Is __𝐎𝐍__ !**`), ar[message.guild.id].onoff = 'On']
-     if(ar[message.guild.id].onoff === 'On') return [message.channel.send(`**The Autorole Is __𝐎𝐅𝐅__ !**`), ar[message.guild.id].onoff = 'Off']
+     if(ar[message.guild.id].onoff === 'Off') return [message.channel.send(`**__**تم تفعيل امر __**الرتبة التلقائية**`), ar[message.guild.id].onoff = 'On']
+     if(ar[message.guild.id].onoff === 'On') return [message.channel.send(`**__**تم اطفاء امر __**الرتبة التلقائية**`), ar[message.guild.id].onoff = 'Off']
     }
    if(state.trim().toLowerCase() == 'set') {
    let newRole = message.content.split(" ").slice(2).join(" ")
-   if(!newRole) return message.reply(`${prefix}autorole setrole [ROLE NAME]`)
-     if(!message.guild.roles.find(`name`,newRole)) return message.reply(`I Cant Find This Role.`)
+   if(!newRole) return message.reply(`${prefix}autorole set [ROLE NAME]`)
+     if(!message.guild.roles.find(`name`,newRole)) return message.reply(`لا استطيع ايجاد الرتبة`)
     ar[message.guild.id].role = newRole
-     message.channel.send(`**The AutoRole Has Been Changed to ${newRole}.**`)
+     message.channel.send(`**${newRole} تم تغيير الرتبة الى**`)
    } 
          }
 if(message.content === prefix + 'info') {
     let perms = message.member.hasPermission(`MANAGE_GUILD`) 
-    if(!perms) return message.reply(`You don't have permissions.`)
+    if(!perms) return message.reply(`لا تمتلك صلاحية التعديل على السيرفر`)
     var embed = new Discord.RichEmbed()
 
-.addField(`Autorole : :sparkles:  `, `
+.addField(`Autorole :  `, `
 
-State : __${ar[message.guild.id].onoff}__
-Role : __${ar[message.guild.id].role}__`)
+الحالة : __${ar[message.guild.id].onoff}__
+الرتبة : __${ar[message.guild.id].role}__`)
 
 
     .setColor(`BLUE`)
