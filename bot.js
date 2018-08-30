@@ -61,7 +61,7 @@ client.on('ready', () => {
 client.on('guildMemberAdd', member => {
   if(!ar[member.guild.id]) ar[member.guild.id] = {
   onoff: 'Off',
-  role: 'Member'
+  role: 'Members'
   }
   if(ar[member.guild.id].onoff === 'Off') return;
 member.addRole(member.guild.roles.find(`name`, ar[member.guild.id].role)).catch(console.error)
@@ -73,7 +73,7 @@ client.on('message', message => {
 if(!message.guild) return
   if(!ar[message.guild.id]) ar[message.guild.id] = {
   onoff: 'Off',
-  role: 'Member'
+  role: 'Members'
   }
 
 if(message.content.startsWith(prefix + `autorole`)) {
