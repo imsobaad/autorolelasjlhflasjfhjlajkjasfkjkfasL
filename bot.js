@@ -86,8 +86,8 @@ if(message.content.startsWith(prefix + `autorole`)) {
   let state = args[0]
   if(!state.trim().toLowerCase() == 'toggle' || !state.trim().toLowerCase() == 'setrole') return message.reply(`${prefix}modlogs toggle/set [ROLE NAME] , جرب`) 
     if(state.trim().toLowerCase() == 'toggle') { 
-     if(ar[message.guild.id].onoff === 'Off') return [message.channel.send(`**__**تم تفعيل امر __**الرتبة التلقائية**`), ar[message.guild.id].onoff = 'On']
-     if(ar[message.guild.id].onoff === 'On') return [message.channel.send(`**__**تم اطفاء امر __**الرتبة التلقائية**`), ar[message.guild.id].onoff = 'Off']
+     if(ar[message.guild.id].onoff === 'Off') return [message.channel.send(`**[**تم تفعيل امر [**الرتبة التلقائية**`), ar[message.guild.id].onoff = 'On']
+     if(ar[message.guild.id].onoff === 'On') return [message.channel.send(`**[**تم اطفاء امر [**الرتبة التلقائية**`), ar[message.guild.id].onoff = 'Off']
     }
    if(state.trim().toLowerCase() == 'set') {
    let newRole = message.content.split(" ").slice(2).join(" ")
