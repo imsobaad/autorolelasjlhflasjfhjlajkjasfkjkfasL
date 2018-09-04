@@ -202,7 +202,7 @@ Support Server : https://discord.gg/feMu8XW
 Invite Link : https://discordapp.com/oauth2/authorize?client_id=456934284566069248&permissions=8&scope=bot
 
 ==================================================================
-
+**
 `);
 
     }
@@ -328,7 +328,7 @@ Support Server : https://discord.gg/feMu8XW
 Invite Link : https://discordapp.com/oauth2/authorize?client_id=456934284566069248&permissions=8&scope=bot
 
 ==================================================================
-
+**
 `);
 
     }
@@ -393,7 +393,7 @@ Support Server : https://discord.gg/feMu8XW
 Invite Link : https://discordapp.com/oauth2/authorize?client_id=456934284566069248&permissions=8&scope=bot
 
 ==================================================================
-
+**
 `);
 
     }
@@ -465,7 +465,7 @@ Support Server : https://discord.gg/feMu8XW
 Invite Link : https://discordapp.com/oauth2/authorize?client_id=456934284566069248&permissions=8&scope=bot
 
 ==================================================================
-
+**
 `);
 
     }
