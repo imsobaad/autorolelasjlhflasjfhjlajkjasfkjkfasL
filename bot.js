@@ -149,6 +149,7 @@ if (message.content.startsWith(prefix + 'help')) {
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 **
+React With ▶ To See Public Commands
 `
 ,`
         **__الاوامــر الــعـــامـــة__**
@@ -171,6 +172,7 @@ if (message.content.startsWith(prefix + 'help')) {
 *contact ➾ لارسال رسالة لصاحب البوت
 *support ➾ لدخول سيرفر دعم البوت
 **
+React With ▶ To See The Admins Commands
   `
 ,`
         **__اوامـــر الادمـــنـــيــــة__**
@@ -216,6 +218,7 @@ if (message.content.startsWith(prefix + 'help')) {
 *autorole set [role name] ➾ لاختيار الرتبة
 *info ➾ لمعرفة اذا كانت خاصية الرتبة التلقائية مفعلة 
 **
+React With ▶ To See Music And Games Commands
    `,`
         **__اوامـــر الموسيــقـى__**
 **
@@ -241,6 +244,7 @@ if (message.content.startsWith(prefix + 'help')) {
 *معلومات عن الاسلام ➾ دين
 *يعطيك بعض الاذكار ➾ اذكار
 **
+React With ▶ To See More Informations
 `
 
 ,`
