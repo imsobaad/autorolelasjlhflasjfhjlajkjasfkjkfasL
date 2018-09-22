@@ -273,7 +273,7 @@ if (message.content.startsWith(prefix + 'help')) {
     .setFooter(`Page ${page} of ${pages.length}`)
     .setDescription(pages[page-1])
  
-    message.author.sendEmbed(embed).then(msg => {
+    message.channel.sendEmbed(embed).then(msg => {
  
         msg.react('◀').then( r => {
             msg.react('▶')
