@@ -127,6 +127,212 @@ if(message.content === prefix + 'info') {
 
 
 
+
+
+
+
+
+client.on('message', message => {
+if (message.content.startsWith(prefix + 'help')) { 
+    let pages = [`
+**
+╭╮╭━╮╱╱╱╱╱╱╭━━╮╱╱╱╭╮
+┃┃┃╭╯╱╱╱╱╱╱┃╭╮┃╱╱╭╯╰╮
+┃╰╯╯╭┳━╮╭━━┫╰╯╰┳━┻╮╭╯
+┃╭╮┃┣┫╭╮┫╭╮┃╭━╮┃╭╮┃┃
+┃┃┃╰┫┃┃┃┃╰╯┃╰━╯┃╰╯┃╰╮
+╰╯╰━┻┻╯╰┻━╮┣━━━┻━━┻━╯
+╱╱╱╱╱╱╱╱╭━╯┃
+╱╱╱╱╱╱╱╱╰━━╯
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+    __معلومات | Informations__             
+
+اسم البوت [ King | Bot ] Bot's Name
+
+برفكس البوت [ * ] Bot Prefix
+
+صانع البوت [ Viînz#3338 ] Bot's Developer
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+**
+`
+,`
+        ***__الاوامــر الــعـــامـــة__***
+**
+*invite ➾ لدعوة البوت الى سيرفرك
+*server ➾ معلومات عن السيرفر                      
+*say ➾ البوت يردد كلامك         
+*setcolor ➾ عشان تغير لونك ملاحظة لازم تحط رقم اللون                                          
+*bot ➾ معلومات عن البوت
+*ping ➾ لمعرفه سرعه البوت
+*members ➾ معلومات عن الاعضاء
+*emojilist ➾ لعرض الايموجي حقت السيرفر
+*id ➾ لمعرفة معلومات حسابك
+*avatar ➾ لاعطائك صورة الشخص اللي منشنته مع الرابط
+*link ➾ يعطيك رابط انفايت للسيرفر اللي انت فيه
+*trans <language> <any thing> ➾ يترجم لك الي تبيه من اي لغة
+*short ➾ لاختصار الروابط
+*embed ➾ كتابة كلامك داخل امبد
+*tag ➾ يكتب لك الكلمة بشكل جميل وكبير
+*contact ➾ لارسال رسالة لصاحب البوت
+*support ➾ لدخول سيرفر دعم البوت
+**
+  `
+,`
+        ***__اوامـــر الادمـــنـــيــــة__***
+**
+*giveaway ➾ لعمل قيف اواي
+*vb ➾ بان من الرومات الصوتية
+*unvb ➾ لنزع البان
+*ban ➾ لتبنيد شخص ما
+*kick ➾ لتعطي شخص كيك
+*clearall ➾ لمسح الشات
+*clear <numb> ➾ مسح الشات بعدد
+*mute ➾ لاعطاء شخص ميوت مع تحديد وقت الميوت 
+*mutechannel ➾ لتقفيل الشات 
+*unmutechannel ➾ لفتح الشات 
+*unmute ➾ لنزع الميوت من الشخص
+*hidechannel ➾ لاخفاء روم 
+*showchannel ➾ لاظهار روم 
+*hall ➾ لاخفاء جميع الرومات
+*sall ➾ لاظهار جميع الرومات
+*ct ➾ لانشاء روم كتابي
+*cv ➾ لانشاء روم صوتي 
+*v2min ➾ لانشاء روم صوتي مؤقت
+*add.r ➾ لانشاء رتبة 
+*delet ➾ لحذف روم
+*dc ➾ لمسح الرومات
+*dr ➾ لمسح الرولات
+*bc ➾ برودكاست 
+*bcrole ➾ برودكاست لرتبة معينة 
+*deletall ➾ لحذف كل شيء
+*ccolors ➾ لانشاء 50 لون متناسق
+*deletecolors ➾ لحذف 50 لون
+*colorslist ➾ لعرض الالوان
+*setcolor ➾ لاختيار لون
+*move all ➾ سحب جميع الأعضاء
+*roles ➾ لعرض رولات 
+*rooms ➾ لعرض رومات 
+*role @user <rank> ➾ لاعطاء شخص رتبة
+*roleremove @user <rank> ➾ لنزع رتبة من شخص 
+*role all <rank> ➾ لاعطاء الجميع رتبة
+*role humans <rank> ➾ لاعطاء البشريين رتبة 
+*role bots <rank> ➾ لاعطاء البوتات رتبة 
+*autorole toggle ➾ لتفعيل الخاصية
+*autorole set [role name] ➾ لاختيار الرتبة
+*info ➾ لمعرفة اذا كانت خاصية الرتبة التلقائية مفعلة 
+**
+   `,`
+        ***__اوامـــر الموسيــقـى__***
+**
+*play / لتشغيل أغنية برآبط أو بأسم
+*skip / لتجآوز الأغنية الحآلية
+*pause / إيقآف الأغنية مؤقتا
+*resume / لموآصلة الإغنية بعد إيقآفهآ مؤقتا
+*vol / لتغيير درجة الصوت 100 - 0
+*stop ➾ لاخراج البوت من رومك
+*queue / لمعرفة قآئمة التشغيل
+**
+`
+,`
+        ***__اوامـــر الالـــعـــاب__***
+ **      
+*عشان تعطي الشخص اللي تمنشنه لكمة ➾ لكمة
+*لعبة هل تعلم ➾ هل تعلم
+*rps ➾ لعبة حجر ورقة مقص
+*roll <numb> ➾ قرعة
+*emoji ➾ لكتابة كلامك بايموجي
+*لعبة اسئلني ➾ اسئلني
+*لعبة كت تويت ➾ كت تويت
+*لعبة لو خيروك ➾ لو خيروك 
+*معلومات عن الاسلام ➾ دين
+*يعطيك بعض الاذكار ➾ اذكار
+**
+`
+
+,`
+**
+╭╮╭━╮╱╱╱╱╱╱╭━━╮╱╱╱╭╮
+┃┃┃╭╯╱╱╱╱╱╱┃╭╮┃╱╱╭╯╰╮
+┃╰╯╯╭┳━╮╭━━┫╰╯╰┳━┻╮╭╯
+┃╭╮┃┣┫╭╮┫╭╮┃╭━╮┃╭╮┃┃
+┃┃┃╰┫┃┃┃┃╰╯┃╰━╯┃╰╯┃╰╮
+╰╯╰━┻┻╯╰┻━╮┣━━━┻━━┻━╯
+╱╱╱╱╱╱╱╱╭━╯┃
+╱╱╱╱╱╱╱╱╰━━
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+       __معلومات اخرى | Other Informations__             
+
+سيرفر الدعم [ https://discord.gg/p2sjgAw ] Bot's Name
+
+رابط اضافة البوت [ https://goo.gl/ADmgeW ] Bot Prefix
+
+شكرا لاستخدامك للبوت [ :heart: ] Thanks For Using The Bot
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+**
+`]
+    let page = 1;
+ 
+    let embed = new Discord.RichEmbed()
+    .setColor('RANDOM')
+    .setFooter(`Page ${page} of ${pages.length}`)
+    .setDescription(pages[page-1])
+ 
+    message.author.sendEmbed(embed).then(msg => {
+ 
+        msg.react('◀').then( r => {
+            msg.react('▶')
+ 
+ 
+        const backwardsFilter = (reaction, user) => reaction.emoji.name === '◀' && user.id === message.author.id;
+        const forwardsFilter = (reaction, user) => reaction.emoji.name === '▶' && user.id === message.author.id;
+ 
+ 
+        const backwards = msg.createReactionCollector(backwardsFilter, { time: 2000000});
+        const forwards = msg.createReactionCollector(forwardsFilter, { time: 2000000});
+ 
+ 
+ 
+        backwards.on('collect', r => {
+            if (page === 1) return;
+            page--;
+            embed.setDescription(pages[page-1]);
+            embed.setFooter(`Page ${page} of ${pages.length}`);
+            msg.edit(embed)
+        })
+        forwards.on('collect', r => {
+            if (page === pages.length) return;
+     
+      page++;
+            embed.setDescription(pages[page-1]);
+            embed.setFooter(`Page ${page} of ${pages.length}`);
+            msg.edit(embed)
+        })
+        })
+    })
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 client.on('message', message => {
     if (message.author.bot) return;
      if (message.content === prefix + "general") {    
