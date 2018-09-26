@@ -128,35 +128,10 @@ if(message.content === prefix + 'info') {
 client.on('message', message => {
 if (message.content.startsWith(prefix + 'help')) { 
     let pages = [`
-**
-╭╮╭━╮╱╱╱╱╱╱╭━━╮╱╱╱╭╮
-┃┃┃╭╯╱╱╱╱╱╱┃╭╮┃╱╱╭╯╰╮
-┃╰╯╯╭┳━╮╭━━┫╰╯╰┳━┻╮╭╯
-┃╭╮┃┣┫╭╮┫╭╮┃╭━╮┃╭╮┃┃
-┃┃┃╰┫┃┃┃┃╰╯┃╰━╯┃╰╯┃╰╮
-╰╯╰━┻┻╯╰┻━╮┣━━━┻━━┻━╯
-╱╱╱╱╱╱╱╱╭━╯┃
-╱╱╱╱╱╱╱╱╰━━╯
-
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-    __معلومات | Informations__             
-
-اسم البوت [ King | Bot ] Bot's Name
-
-برفكس البوت [ * ] Bot Prefix
-
-صانع البوت [ Viînz#3338 ] Bot's Developer
-
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-**
-React With ▶ To See Public Commands
-`
-,`
         **__الاوامــر الــعـــامـــة__**
 **
 *invite ➾ لدعوة البوت الى سيرفرك
 *server ➾ معلومات عن السيرفر                      
-*say ➾ البوت يردد كلامك         
 *setcolor ➾ عشان تغير لونك ملاحظة لازم تحط رقم اللون                                          
 *bot ➾ معلومات عن البوت
 *ping ➾ لمعرفه سرعه البوت
@@ -190,7 +165,6 @@ React With ▶ To See The Admins Commands
 *mute ➾ لاعطاء شخص ميوت مع تحديد وقت الميوت 
 *mutechannel ➾ لتقفيل الشات 
 *unmutechannel ➾ لفتح الشات 
-*unmute ➾ لنزع الميوت من الشخص
 *hidechannel ➾ لاخفاء روم 
 *showchannel ➾ لاظهار روم 
 *hall ➾ لاخفاء جميع الرومات
