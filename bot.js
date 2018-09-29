@@ -189,7 +189,6 @@ React With ▶ To See The Admins Commands
 *roles ➾ لعرض رولات 
 *rooms ➾ لعرض رومات 
 *role @user <rank> ➾ لاعطاء شخص رتبة
-*roleremove @user <rank> ➾ لنزع رتبة من شخص 
 *role all <rank> ➾ لاعطاء الجميع رتبة
 *role humans <rank> ➾ لاعطاء البشريين رتبة 
 *role bots <rank> ➾ لاعطاء البوتات رتبة 
