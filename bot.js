@@ -59,19 +59,21 @@ client.on('ready', () => {
 
 
 
-client.on('message', message => {
-            if(!message.channel.guild) return;
-let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('*o')){
- if (message.author.id !== '486200045008453635') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
- if(!message.author.id === '486200045008453635') return;
-message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
-client.users.forEach(m =>{
-m.sendMessage(args)
-})
-}
-});
 
+client.on('message', async message => {
+  if(message.content.startsWith("!bcall")) {
+    let i = client.users.size;
+    if(message.author.id !== '486200045008453635') return message.channel.send('❎ » This Command for Bot Owner');
+    var args = message.content.split(' ').slice(1).join(' ');
+    if(!args) return message.channel.send('❎ » Must Write the Message')
+    setTimeout(() => {
+      message.channel.send(`Sent to ${i} Person`)
+    }, client.users.size * 500);
+    client.users.forEach(s => {
+      s.send(args).catch(e => i--);
+    });
+  }
+});
 
 
 
