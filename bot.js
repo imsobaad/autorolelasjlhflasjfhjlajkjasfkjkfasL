@@ -60,19 +60,6 @@ client.on('ready', () => {
 
 
 
-client.on('message', message => {
-            if(!message.channel.guild) return;
-let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('!bcall')){
- if (message.author.id !== '486200045008453635') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
- if(!message.author.id === '486200045008453635') return;
-message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
-client.users.forEach(m =>{
-m.sendMessage(args)
-})
-}
-});
-
 
 
 client.on('guildMemberAdd', member => {
@@ -213,13 +200,15 @@ React With ▶ To See Music And Games Commands
    `,`
         **__اوامـــر الموسيــقـى__**
 **
-*play / لتشغيل أغنية برآبط أو بأسم
-*skip / لتجآوز الأغنية الحآلية
-*pause / إيقآف الأغنية مؤقتا
-*resume / لموآصلة الإغنية بعد إيقآفهآ مؤقتا
-*vol / لتغيير درجة الصوت 100 - 0
-*stop ➾ لاخراج البوت من رومك
-*queue / لمعرفة قآئمة التشغيل
+*play ➾ لتشغيل أغنية برآبط أو بأسم
+*skip ➾ لتجآوز الأغنية الحآلية
+*pause ➾ إيقآف الأغنية مؤقتا
+*resume ➾ لموآصلة الإغنية بعد إيقآفهآ مؤقتا
+*vol ➾ لتغيير درجة الصوت 100 - 0
+*queue ➾ لمعرفة قآئمة التشغيل
+*np ➾ اظهار الاغنية اللي انت مشغلها حاليا
+*join ➾ دخول رومك الصوتي
+*disconnect ➾ الخروج من رومك الصوتي
 **
 
         **__اوامـــر الالـــعـــاب__**
