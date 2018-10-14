@@ -149,7 +149,6 @@ if (message.content.startsWith(prefix + 'help')) {
 *embed ➾ كتابة كلامك داخل امبد
 *tag ➾ يكتب لك الكلمة بشكل جميل وكبير
 *contact ➾ لارسال رسالة لصاحب البوت
-*support ➾ لدخول سيرفر دعم البوت
 **
 React With ▶ To See The Admins Commands
   `
@@ -178,7 +177,6 @@ React With ▶ To See The Admins Commands
 *dr ➾ لمسح الرولات
 *bc ➾ برودكاست 
 *bcrole ➾ برودكاست لرتبة معينة 
-*deletall ➾ لحذف كل شيء
 *ccolors ➾ لانشاء 50 لون متناسق
 *deletecolors ➾ لحذف 50 لون
 *colorslist ➾ لعرض الالوان
