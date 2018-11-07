@@ -171,7 +171,7 @@ React With ▶ To See The Admins Commands
 *cv ➾ لانشاء روم صوتي 
 *v2min ➾ لانشاء روم صوتي مؤقت
 *add.r ➾ لانشاء رتبة 
-*delet ➾ لحذف روم
+*delete ➾ لحذف روم
 *dc ➾ لمسح الرومات
 *dr ➾ لمسح الرولات
 *bc ➾ برودكاست 
