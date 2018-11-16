@@ -184,6 +184,7 @@ React With ▶ To See The Admins Commands
 *roles ➾ لعرض رولات 
 *rooms ➾ لعرض رومات 
 *role @user <rank> ➾ لاعطاء شخص رتبة
+*roleremove @user <rank> ➾ لاعطاء شخص رتبة
 *role all <rank> ➾ لاعطاء الجميع رتبة
 *role humans <rank> ➾ لاعطاء البشريين رتبة 
 *role bots <rank> ➾ لاعطاء البوتات رتبة 
@@ -267,123 +268,125 @@ React With ▶ To See Music And Games Commands
 
 
 
+  client.on("message", message => {
+      var prefix = "*";
+      var args = message.content.split(' ').slice(1); 
+      var msg = message.content.toLowerCase();
+      if( !message.guild ) return;
+      if( !msg.startsWith( prefix + 'role' ) ) return;
+      if( msg.toLowerCase().startsWith( prefix + 'fljhlflsh' ) ){
+   if (!message.member.hasPermission("ADMINISTRATOR"))  return message.reply("**للأسف ليس لديك صلاحية `ADMINISTRATOR`**").then(msg => msg.delete(5000));
+  if(!message.guild.member(client.user).hasPermission("ADMINISTRATOR")) return message.reply("**I Don't Have `ADMINISTRATOR` Permission**").then(msg => msg.delete(6000));
+          if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد سحب منه الرتبة**' );
+          if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد سحبها من الشخص**' );
+          var role = msg.split(' ').slice(2).join(" ").toLowerCase(); 
+          var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first(); 
+          if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد سحبها من الشخص**' );if( message.mentions.members.first() ){
+              message.mentions.members.first().removeRole( role1 );
+              return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم سحب من **');
+          }
+          if( args[0].toLowerCase() == "all" ){
+              message.guild.members.forEach(m=>m.removeRole( role1 ))
+              return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من الكل رتبة**');
+          } else if( args[0].toLowerCase() == "bots" ){
+              message.guild.members.filter(m=>m.user.bot).forEach(m=>m.removeRole(role1))
+              return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من البوتات رتبة**');
+          } else if( args[0].toLowerCase() == "humans" ){
+              message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.removeRole(role1))
+              return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من البشريين رتبة**');
+          }   
+      } else {
+          if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد اعطائها الرتبة**' );
+          if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );
+          var role = msg.split(' ').slice(2).join(" ").toLowerCase(); 
+          var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first(); 
+          if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );if( message.mentions.members.first() ){
+              message.mentions.members.first().addRole( role1 );
+              return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم اعطاء **');
+          }
+          if( args[0].toLowerCase() == "all" ){
+              message.guild.members.forEach(m=>m.addRole( role1 ))
+              return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء الكل رتبة**');
+          } else if( args[0].toLowerCase() == "bots" ){
+              message.guild.members.filter(m=>m.user.bot).forEach(m=>m.addRole(role1))
+              return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء البوتات رتبة**');
+          } else if( args[0].toLowerCase() == "humans" ){
+              message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.addRole(role1))
+              return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء البشريين رتبة**');
+          } 
+      } 
+  });
+
 client.on('message', message => {
-    let args = message.content.split(' ').slice(1);
-    if(message.content.startsWith(prefix + 'role')) {
-        let member = message.mentions.users.first();
-        let role = args.join(' ').replace(member, '').replace(args[0], '').replace(' ', '');
-        console.log(role);
-        if(member) {
-              if(role.startsWith('-')) {
-                let roleRe = args.join(' ').replace(member, '').replace(args[0], '').replace('-', '').replace(' ', '');
-                console.log(roleRe);
-                let role1 = message.guild.roles.find('name', roleRe);
-                console.log(`hi`);
-const ee =new Discord.RichEmbed()
- .setDescription('**:x: I can’t find the role.**')
- .setFooter('Requested By '+message.author.username,message.author.avatarURL)
-        if(!role1) return message.channel.send(ee);                message.guild.member(member).removeRole(role1.id);
-                
-                     const e = new Discord.RichEmbed()
-                     
-                 .setDescription(':white_check_mark:** Changed Roles For **'+member+'**,** '+'**'+'-'+role1.name+'**')
-                .setFooter('Requested By '+message.author.username,message.author.avatarURL)
-                .setColor('BLACK')
-                 message.channel.send(e)
-            } else if(!role.startsWith('-')) {
-                let roleRe = args.join(' ').replace(member, '').replace(args[0], '').replace('-', '').replace(' ', '');
-                let role1 = message.guild.roles.find('name', roleRe);
-const ee =new Discord.RichEmbed()
- .setDescription('**:x: I can’t find the role.**')
- .setFooter('Requested By : '+message.author.username,message.author.avatarURL)
-        if(!role1) return message.channel.send(ee);                message.guild.member(member).addRole(role1);
-                const e = new Discord.RichEmbed()
-                
-                .setDescription(':white_check_mark:** Changed Roles For **'+member+'**,** '+'**'+'+'+role1.name+'**')
-                .setFooter('Requested By : '+message.author.username,message.author.avatarURL)
-                .setColor('BLACK')
-                 message.channel.send(e)
-            } else {
-                message.reply(`يجب عليك كتابة اسم الرتبة`);
-            } 
+  var prefix = '*';
+
+  if (message.content.startsWith(prefix + "removerole")) {
+    let clientbot = message.guild.me;
+if (clientbot.hasPermission("MANAGE_ROLES")) {
+  if (!message.member.hasPermission("MANAGE_ROLES")) {
+    if(mention.highestRole.position >= message.guild.member(message.author).highestRole.positon) return message.reply('**لا يمكنك اعطاء لميوت شخص رتبته اعلى منك**')
+    if(mention.highestRole.positon >= message.guild.member(client.user).highestRole.positon) return message.reply('**لا يمكنني اعطاء ميوت لشخص رتبته اعلى مني**')
+    message.react("❌")
+  } else {
+    let args = message.content.split(' ').slice(1).join(' ');
+  let args2 = message.content.split(' ').slice(2).join(' ');
+  if (message.mentions.users.size === 0) {
+    const embed = new Discord.RichEmbed()
+    .setColor("#fff")
+    .setTitle(" أمثله على الأوامر : ")
+    .setDescription(`
+    ***role @Viinz Mod** : لأعطاء رتبة لشخص 
+    ***remove @Viinz Mod** : لأزاله رتبة من شخص
+    ***role all Guest** : لاعطاء رتبة للجميع
+    ***role bots System** : لاعطاء رتبة لجميع البوتات
+    ***role humans User** : لاعطاء رتبة للأشخاص فقط`)
+    .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+
+  message.channel.send({ embed: embed });
+  } else {
+    var mentioned = message.mentions.members.first().id;
+    var mgm = message.guild.members.get(mentioned)
+    var role = message.guild.roles.find("name", args2)
+    let hasrole = mgm.roles.has("name", args)
+    if (args2) {
+      if (role) {
+        if (mgm.roles.has(role.id)) {
+        mgm.removeRole(role)
+        const roleremoved = new Discord.RichEmbed()
+          .addField(`**Role Removed!!**`, `**:white_check_mark:| The role **${args2}** has been removed from <@${mgm.id}>**`)
+          .setColor("#fff")
+          message.channel.send(roleremoved)
+        } else {
+          message.channel.send("**:x: |"+mgm.user.tag+"** doesn't have the role **" + role.name + "**!")
         }
- else if(args[0] == 'all') {
-  if(role.startsWith('-')) { 
-       let roleRe = args.join(' ').replace(member, '').replace(args[0], '').replace('-', '').replace(' ', '');
-         let role1 = message.guild.roles.find('name', roleRe);
-                   message.channel.send(`الرجاء الانتظار حتى يتم الانتهاء من الامر`).then(msg =>{
-           message.guild.members.forEach(m => {
-            message.guild.member(m).removeRole(role1.id);
-        });
-         msg.edit(`** <a:like:472979723358699520>  Done...\n**` +role1.name+`** Has Taken From __${message.guild.members.size}__ Member**`);
-    });
-  }
-    if(role) {
-    let role1 = message.guild.roles.find('name', role);
-    if(!role1) return;
-    message.channel.send(`الرجاء الانتظار حتى يتم الانتهاء من الامر`).then(msg => {
-        message.guild.members.forEach(m => {
-            message.guild.member(m).addRole(role1);
-        });
-        msg.edit(`** <a:like:472979723358699520>  Done...\n**` +  role1.name+`** Has Given To __${message.guild.members.size}__ Members **`);
-    });
-}
-} else if(args[0] == 'humans') {
-     if(role.startsWith('-')) { 
-       let roleRe = args.join(' ').replace(member, '').replace(args[0], '').replace('-', '').replace(' ', '');
-         let role1 = message.guild.roles.find('name', roleRe);
-                   message.channel.send(`الرجاء الانتظار حتى يتم الانتهاء من الامر`).then(msg =>{
-           message.guild.members.forEach(m => {
-            message.guild.member(m).removeRole(role1.id);
-        });
-         msg.edit(`** <a:like:472979723358699520>  Done...\n**` +role1.name+`** Has Taken From __${message.guild.members.size}__ Member**`);
-    });
-  }
+      } else {
+        message.channel.send("**:x: |The role Named **``"+args2+"``** doesn't exist!**")
+      }
 
-    if(role) {
-        let role1 = message.guild.roles.find('name', role);
+    } else {
+      const embed1 = new Discord.RichEmbed()
+      .setColor("#fff")
+      .setTitle(" أمثله على الأوامر : ")
+      .setDescription(`
+      ***role @Viinz Mod** : لأعطاء رتبة لشخص 
+      ***remove @Viinz Mod** : لأزاله رتبة من شخص
+      ***role all Guest** : لاعطاء رتبة للجميع
+      ***role bots System** : لاعطاء رتبة لجميع البوتات
+      ***role humans User** : لاعطاء رتبة للأشخاص فقط`)
+      .setFooter('Requested by '+message.author.username, message.author.avatarURL)
 
- const ee =new Discord.RichEmbed()
- .setDescription('I Cann’t Find This Role')
- .setFooter('Requested By : '+message.author.username,message.author.avatarURL)
-        if(!role1) return message.channel.send(ee);
-        message.channel.send(`الرجاء الانتظار حتى يتم الانتهاء من الامر`).then(msg => {
-            message.guild.members.filter(m =>m.user.bot == false).forEach(m => {
-                message.guild.member(m).addRole(role1);
-            });
-        msg.edit(`** <a:like:472979723358699520>  Done...**`);
-        });
-    }
-} else if(args[0] == 'bots') {
-     if(role.startsWith('-')) { 
-       let roleRe = args.join(' ').replace(member, '').replace(args[0], '').replace('-', '').replace(' ', '');
-         let role1 = message.guild.roles.find('name', roleRe);
-                   message.channel.send(`الرجاء الانتظار حتى يتم الانتهاء من الامر`).then(msg =>{
-           message.guild.members.forEach(m => {
-            message.guild.member(m).removeRole(role1.id);
-        });
-         msg.edit(`** <a:like:472979723358699520>  Done...**`);
-    });
+    message.channel.send({ embed: embed1 });    }
   }
-    if(role) {
-        let role1 = message.guild.roles.find('name', role);
-       const ee =new Discord.RichEmbed()
- .setDescription('I Cann’t Find This Role')
- .setFooter('Requested By : '+message.author.username,message.author.avatarURL)
-        if(!role1) return message.channel.send(ee);
-        message.channel.send(`الرجاء الانتظار حتى يتم الانتهاء من الامر`).then(msg => {
-            message.guild.members.filter(m =>m.user.bot == true).forEach(m => {
-                message.guild.member(m).addRole(role1);
-            });
-        msg.edit(`** <a:like:472979723358699520>  Done...\n**` +role1.name+`** Has Given To __${message.guild.members.size}__ Member**`);
-});
 }
+} else {
+const botnoperm = new Discord.RichEmbed()
+        .setColor("#fff")
+        .addField("❌ Permission Error ❌", `I don't have perms to add roles to users!\nNeeded Permission: **MANAGE_ROLES**`)
+
+        message.channel.send(botnoperm)
 }
 }
 });
-
-
-
 
 
 
