@@ -175,6 +175,7 @@ React With ▶ To See The Admins Commands
 *dc ➾ لمسح الرومات
 *dr ➾ لمسح الرولات
 *bc ➾ برودكاست 
+*kbc ➾ برودكاست بدون امبد 
 *bcrole ➾ برودكاست لرتبة معينة 
 *ccolors ➾ لانشاء 50 لون متناسق
 *deletecolors ➾ لحذف 50 لون
